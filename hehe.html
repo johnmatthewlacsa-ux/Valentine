@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Valentine 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      color: #b3005e;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #ffffff;
+      color: #b3005e;
+    }
+
+    .love-message {
+      font-size: 32px;
+      color: #b3005e;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1 id="question">Will you be my Valentine?</h1>
+
+    <div class="buttons">
+      <button id="yesBtn">YES</button>
+      <button id="noBtn">NO</button>
+    </div>
+
+    <div class="love-message" id="loveMessage">
+      i love u sm sweetheart 💕
+    </div>
+  </div>
+
+  <script>
+    const noTexts = [
+      "are you sure?",
+      "baby u sure",
+      "babyyyyyy",
+      "just say yes baby",
+      "baby pleaseeee"
+    ];
+
+    let noClickCount = 0;
+    let yesScale = 1;
+
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const question = document.getElementById("question");
+    const loveMessage = document.getElementById("loveMessage");
+
+    noBtn.addEventListener("click", () => {
+      if (noClickCount < noTexts.length) {
+        noBtn.textContent = noTexts[noClickCount];
+        noClickCount++;
+      }
+
+      yesScale += 0.3;
+      yesBtn.style.transform = `scale(${yesScale})`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      question.style.display = "none";
+      document.querySelector(".buttons").style.display = "none";
+      loveMessage.style.display = "block";
+    });
+  </script>
+</body>
+</html>
